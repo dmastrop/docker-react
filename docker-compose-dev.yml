@@ -1,0 +1,27 @@
+# this is formerly docker-compose.yml for Section 6. From now on to run Section 6 must use
+# must now run with:
+# docker-compose -f docker-compose-dev.yml up
+# docker-compose -f docker-compose-dev.yml -- build
+# docker-compose -f docker-compose-dev.yml down
+# this file was renamed from docker-compose.yml to docker-compose-dev.yml
+
+version: "3"
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app
+  tests:
+    stdin_open: true
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    command: ["npm", "run", "test"]
