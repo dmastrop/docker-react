@@ -1,5 +1,3 @@
-# comment test adding to master
-
 name: Deploy Frontend
 on:
   push:
