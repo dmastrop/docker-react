@@ -1,3 +1,5 @@
+# Note that elasticbeanstalk params have changed. See updated on notepad.
+
 sudo: required
 language: generic
 
